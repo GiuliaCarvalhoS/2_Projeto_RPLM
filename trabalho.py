@@ -41,7 +41,7 @@ print("Em um dado momento você, Chuky, Jigsaw e Zé do caixão, estão na cozin
 print("Jigsaw está tendo dificuldade em alcançar o armário da cozinha para pegar um copo, parece que sua bicicletinha não é alta o suficiente. Zé do caixão, por alguma razão sai da cozinha (que coisa não é mesmo… quem será que vai morrer?)...")
 
 print("-" * 180)
-#playsound("file location\audio.p3") # Mostra o som do grito
+playsound("./sound/y2meta.com - Grito de terror (320 kbps).mp3") # Mostra o som do grito
 
 # Terceiro parágrafo
 print("")
