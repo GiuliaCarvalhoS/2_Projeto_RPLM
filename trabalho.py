@@ -162,11 +162,77 @@ else:
     mixer.music.play()
     time.sleep(2.5)
     mixer.music.stop()
-
-    print("Todos escutam um grito vindo da garagem e em seguida todos vão até lá\n"
-          "Ao chegarem, vocês escontram o corpo de Samara")
-    print("explica morte samara")
+    print("-" * 180)
+    print("Todos escutam um grito, dessa vez vindo da garagem")
+    print("Vocês correm direto para o som do grito\n"
+          "\033[31mLá encontram Samara\033[0m….uuuuu… que interessante, agora restam dois suspeitos...ou será que não ?!\n"
+          "Vamos falar então da morte da Samara?!\n"
+          "Ela foi encontrada no carro, com os cabelos em pé"
+          "- A garota tentou fazer uma ligação direta no carro e foi ligada com Deus hahah - Chucky caçoa\n"
+          "- Não seja idiota! Mexa nela… viu, assassinada! - Comenta Jigsaw, de sua bicicletinha. Como a bicicleta de Jigsaw é"
+          "muito baixa para\n"
+          "conseguir ver pela janela, abriram a porta do carro para Jigsaw ver melhor"
+          "Samara estava parecida com Nick-quase-sem-cabeça (se você não entendeu a referência, sinto muito\n"
+          "-Hum, a mesma arma talvez, o corte está limpo...provavelmente fora o mesmo que matou aquele cara lá, pontua chucky")
 
     #Adicionando novas preposições
+    preposicoesT.append()
 
-    preposicoesT.add()
+    preposicoes = ["Pista1", "Pista2", "Pista3", "Pista4"]
+    menu(preposicoes)
+
+    print("-" * 180)
+
+    primeiraEscolha = -1
+
+    while primeiraEscolha < 0 or primeiraEscolha > len(preposicoes):
+        try:
+            primeiraEscolha = int(input("Sua primera escolha é: "))
+            if 0 < primeiraEscolha <= len(preposicoes):
+                preposicoes.pop(primeiraEscolha - 1)
+                print([preposicoesT[primeiraEscolha]])
+                preposicoesT.pop(primeiraEscolha)
+        except ValueError:
+            pass
+
+    menu(preposicoes)
+
+    segundaEscolha = -1
+
+    while segundaEscolha < 0 or segundaEscolha > len(preposicoes):
+        try:
+            segundaEscolha = int(input("Sua segunda escolha é: "))
+            if 0 < segundaEscolha <= len(preposicoes):
+                preposicoes.pop(segundaEscolha - 1)
+                print([preposicoesT[segundaEscolha]])
+                preposicoesT.pop(segundaEscolha)
+
+        except ValueError:
+            pass
+
+    escolhassassino = ''
+
+    while escolhassassino != "S" or escolhassassino != "N" or escolhassassino == '':
+        print("-" * 180)
+        escolhassassino = input("Deseja dizer quem é o assassino? [S/N]").upper().strip()
+        if escolhassassino == "S" or escolhassassino == "N":
+            break
+
+    if escolhassassino == "S":
+        print("-" * 180)
+        nomeassassino = input("Digite o nome do assassino: ").upper().strip()
+        if nomeassassino != "ANNABELLE":
+            # Mostra o som do grito
+            mixer.music.load("./sound/y2meta.com - Grito de terror (320 kbps).mp3")
+            mixer.music.play()
+            time.sleep(2.5)
+            mixer.music.stop()
+            print("-" * 180)
+            print("\033[31mVOCÊ MORREU\033[0m")
+            print("-" * 180)
+            sys.exit()
+        else:
+            print("SOM VITÓRIA")
+            print("VOCÊ GANHOU")
+    else:
+        print("Continua história")
