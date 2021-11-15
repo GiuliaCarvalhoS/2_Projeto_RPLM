@@ -29,7 +29,7 @@ print(
     "melhor, e poderá tomar sua decisão.")
 
 print("-" * 180)
-# time.sleep(15)
+time.sleep(10)
 
 # Segundo parágrafo
 print("")
@@ -40,11 +40,11 @@ print(
     "Jigsaw está tendo dificuldade em alcançar o armário da cozinha para pegar um copo, parece que sua bicicletinha não é alta o suficiente.\n"
     "Zé do caixão, por alguma razão sai da cozinha (que coisa não é mesmo… quem será que vai morrer?)...")
 print("-" * 180)
-# time.sleep(5)
+time.sleep(15)
 # Mostra o som do grito
 mixer.music.load("./sound/y2meta.com - Grito de terror (320 kbps).mp3")
-# mixer.music.play()
-# time.sleep(2.5)
+mixer.music.play()
+time.sleep(2.5)
 mixer.music.stop()
 
 # Terceiro parágrafo
@@ -54,8 +54,8 @@ print("Vocês saem da cozinha em direção ao grito, que parece vir da sala de e
 
 img = Image.open('AREA9 (1).png')  # cria o objeto
 
-# img.show() #apresenta a imagem na tela
-
+img.show() #apresenta a imagem na tela
+print("-" * 180)
 print("Descubra quem é o assassino antes que todos morram")
 # Primeiras preposições
 print("-" * 180)
@@ -66,7 +66,7 @@ preposicoes = ["Pista1", "Pista2", "Pista3", "Pista4"]
 preposicoesT = ['Se você, Jigsaw e Chucky estavam na cozinha, então o assassino não estava na cozinha',
                 'Samara estava fumando na varanda e a varanda é perto da sala',
                 'Se a faca de PennyWise era de churrasco, então ele estava cortando as pernas das crianças para o churras',
-                'Se Anabelle está mexendo no anel sobre a luva, então ela é a assassina'
+                'Se Anabelle está mexendo no anel sobre a luva, então zé morreu esfaqueado'
                 ]
 
 menu(preposicoes)
@@ -80,8 +80,11 @@ while primeiraEscolha < 0 or primeiraEscolha > len(preposicoes):
         primeiraEscolha = int(input("Sua primera escolha é: "))
         if 0 < primeiraEscolha <= len(preposicoes):
             preposicoes.pop(primeiraEscolha - 1)
-            print([preposicoesT[primeiraEscolha]])
-            preposicoesT.pop(primeiraEscolha)
+            print("-" * 180)
+            print(f'\033[1;34m{preposicoesT[primeiraEscolha - 1]}\033[0m')
+            print("-" * 180)
+            preposicoesT.pop(primeiraEscolha - 1)
+            break
     except ValueError:
         pass
 
@@ -94,9 +97,11 @@ while segundaEscolha < 0 or segundaEscolha > len(preposicoes):
         segundaEscolha = int(input("Sua segunda escolha é: "))
         if 0 < segundaEscolha <= len(preposicoes):
             preposicoes.pop(segundaEscolha - 1)
-            print([preposicoesT[segundaEscolha]])
-            preposicoesT.pop(segundaEscolha)
-
+            print("-" * 180)
+            print(f'\033[1;34m{preposicoesT[segundaEscolha - 1]}\033[0m')
+            print("-" * 180)
+            preposicoesT.pop(segundaEscolha - 1)
+            break
     except ValueError:
         pass
 
@@ -122,8 +127,12 @@ if escolhassassino == "S":
         print("-" * 180)
         sys.exit()
     else:
-        print("SOM VITÓRIA")
-        print("VOCÊ GANHOU")
+        print("-" * 180)
+        print("\033[1;32mVOCÊ GANHOU\033[0m".center(180))
+        print("-" * 180)
+        mixer.music.load("./sound/tema-da-vitoria-curto.mp3")
+        mixer.music.play()
+        time.sleep(3)
 else:
     print("")
     print("-" * 180)
@@ -135,6 +144,7 @@ else:
           "inclusive você! Mas, na situação em que se encontra o país, nenhuma proposta de trabalho pode ser negada… Bom, vamos voltar a história.\n"
           "Chucky atira o coração do Zé na direção de Penny, que o pega com uma bocada\n")
     print("-" * 180)
+    time.sleep(15)
     print("-Bom garoto, bom garoto... - caçoa Chucky\n"
           "-Só gostaria de lembrar, que escolher um de nós para seu filmezinho novo, vai impactar diretamente na sua carreira e toda sua vida\n"
           "Jigsaw fala isso diretamente pra você\n"
@@ -142,18 +152,19 @@ else:
           "em cima de você, escolha aquele que nos trará mais fama e dinheiro. Caso contrário, essa casa cheia de assassinos e monstros será o menor\n"
           "dos seus problemas")
     print("-" * 180)
+    time.sleep(15)
     print("Você, Chucky e Jigsaw, o trio inseparável, estão em um quarto conversando\n"
           "- Olha, é mais do que claro que não foi um de nós que matou aquele cara! Eu sugiro que a gente arranque as tripas dos outros que não "
           "estavam na sala - diz Chucky\n"
           "- Vamos jogar um jogo…\n"
           "-Ah cala a boca !!! - Você e Chucky falam ao mesmo tempo\n"
           "- Deixem aquela boneca comigo! diz Chucky\n"
-          "- Você parece muito interessado na Anabelle Chucky, questiona Jigsaw\n"
+          "- Você parece muito interessado na Anabelle, Chucky, questiona Jigsaw\n" #mudar isso, deixar apenas piada do carro
           "- Ela tem que respeitar meus 32 anos de carreira. Ela tá começando a vida dela.\nEu não comecei ontem, tenho toda uma história de vida,"
           " tenho toda uma história de trabalho. Eu fui pioneiro do movimento, hoje eu sou um ícone, vocifera Chucky\n"
           "- Então vamos ficar de olho em cada um? Pergunta Jigsaw\n"
           "Você sugere que Chucky fique de olho em Anabelle, Jigsaw em Penywise e você ficará de olho em Samara")
-
+    time.sleep(15)
 
     #SEGUNDA MORTE
 
@@ -163,9 +174,9 @@ else:
     time.sleep(2.5)
     mixer.music.stop()
     print("-" * 180)
-    print("Todos escutam um grito, dessa vez vindo da garagem")
+    print("Você escuta um grito, dessa vez vindo da garagem")
     print("Vocês correm direto para o som do grito\n"
-          "\033[31mLá encontram Samara\033[0m….uuuuu… que interessante, agora restam dois suspeitos...ou será que não ?!\n"
+          "\033[31mLá encontram Samara\033[0m….\nuuuuu… que interessante.. Agora restam dois suspeitos...ou será que não ?!\n"
           "Vamos falar então da morte da Samara?!\n"
           "Ela foi encontrada no carro, com os cabelos em pé"
           "- A garota tentou fazer uma ligação direta no carro e foi ligada com Deus hahah - Chucky caçoa\n"
@@ -174,11 +185,14 @@ else:
           "conseguir ver pela janela, abriram a porta do carro para Jigsaw ver melhor"
           "Samara estava parecida com Nick-quase-sem-cabeça (se você não entendeu a referência, sinto muito\n"
           "-Hum, a mesma arma talvez, o corte está limpo...provavelmente fora o mesmo que matou aquele cara lá, pontua chucky")
-
+    time.sleep(10)
     #Adicionando novas preposições
-    preposicoesT.append()
+    preposicoesT.append("Se Annabelle está mexendo no anel sobre a luva, então ela é a assassina ")
+    preposicoesT.append("Se voz do grito era feminina, então Samara era quem estava gritando de dor ou a Annabelle de susto")
 
     preposicoes = ["Pista1", "Pista2", "Pista3", "Pista4"]
+    print("-" * 180)
+    print("Escolha 2 pistas (preposições) :")
     menu(preposicoes)
 
     print("-" * 180)
@@ -190,8 +204,11 @@ else:
             primeiraEscolha = int(input("Sua primera escolha é: "))
             if 0 < primeiraEscolha <= len(preposicoes):
                 preposicoes.pop(primeiraEscolha - 1)
-                print([preposicoesT[primeiraEscolha]])
-                preposicoesT.pop(primeiraEscolha)
+                print("-" * 180)
+                print(f'\033[1;34m{preposicoesT[primeiraEscolha - 1]}\033[0m')
+                print("-" * 180)
+                preposicoesT.pop(primeiraEscolha - 1)
+                break
         except ValueError:
             pass
 
@@ -204,9 +221,11 @@ else:
             segundaEscolha = int(input("Sua segunda escolha é: "))
             if 0 < segundaEscolha <= len(preposicoes):
                 preposicoes.pop(segundaEscolha - 1)
-                print([preposicoesT[segundaEscolha]])
-                preposicoesT.pop(segundaEscolha)
-
+                print("-" * 180)
+                print(f'\033[1;34m{preposicoesT[segundaEscolha - 1]}\033[0m')
+                print("-" * 180)
+                preposicoesT.pop(segundaEscolha - 1)
+                break
         except ValueError:
             pass
 
@@ -236,3 +255,81 @@ else:
             print("VOCÊ GANHOU")
     else:
         print("Continua história")
+        # Adicionando novas preposições
+        preposicoesT.append("Se Annabelle encontrou Jigsaw na varanda então ela passou pelo quintal")
+        preposicoesT.append("Se a faca de PennyWise era de churrasco e na churrasqueira então ele estava fazendo churrasco")
+
+        preposicoes = ["Pista1", "Pista2", "Pista3", "Pista4"]
+        print("-" * 180)
+        print("Escolha 2 pistas (preposições) :")
+        # Mostra o som do grito
+        mixer.music.load("./sound/y2meta.com - Grito de terror (320 kbps).mp3")
+        mixer.music.play()
+        time.sleep(2.5)
+        mixer.music.stop()
+        menu(preposicoes)
+
+        print("-" * 180)
+
+        primeiraEscolha = -1
+
+        while primeiraEscolha < 0 or primeiraEscolha > len(preposicoes):
+            try:
+                primeiraEscolha = int(input("Sua primera escolha é: "))
+                if 0 < primeiraEscolha <= len(preposicoes):
+                    preposicoes.pop(primeiraEscolha - 1)
+                    print("-" * 180)
+                    print(f'\033[1;34m{preposicoesT[primeiraEscolha - 1]}\033[0m')
+                    print("-" * 180)
+                    preposicoesT.pop(primeiraEscolha - 1)
+                    break
+            except ValueError:
+                pass
+
+        menu(preposicoes)
+
+        segundaEscolha = -1
+
+        while segundaEscolha < 0 or segundaEscolha > len(preposicoes):
+            try:
+                segundaEscolha = int(input("Sua segunda escolha é: "))
+                if 0 < segundaEscolha <= len(preposicoes):
+                    preposicoes.pop(segundaEscolha - 1)
+                    print("-" * 180)
+                    print(f'\033[1;34m{preposicoesT[segundaEscolha - 1]}\033[0m')
+                    print("-" * 180)
+                    preposicoesT.pop(segundaEscolha - 1)
+                    break
+            except ValueError:
+                pass
+
+        escolhassassino = ''
+
+        while escolhassassino != "S" or escolhassassino != "N" or escolhassassino == '':
+            print("-" * 180)
+            escolhassassino = input("Deseja dizer quem é o assassino? [S/N]").upper().strip()
+            if escolhassassino == "S" or escolhassassino == "N":
+                break
+
+        if escolhassassino == "S":
+            print("-" * 180)
+            nomeassassino = input("Digite o nome do assassino: ").upper().strip()
+            if nomeassassino != "ANNABELLE":
+                # Mostra o som do grito
+                mixer.music.load("./sound/y2meta.com - Grito de terror (320 kbps).mp3")
+                mixer.music.play()
+                time.sleep(2.5)
+                mixer.music.stop()
+                print("-" * 180)
+                print("\033[31mVOCÊ MORREU\033[0m")
+                print("-" * 180)
+                sys.exit()
+            else:
+                print("-" * 180)
+                print("\033[1;32mVOCÊ GANHOU\033[0m".center(180))
+                print("-" * 180)
+                mixer.music.load("./sound/tema-da-vitoria-curto.mp3")
+                mixer.music.play()
+                time.sleep(3)
+        else:
+            print("Historia final")
