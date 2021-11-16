@@ -3,17 +3,27 @@ import time
 from pygame import mixer
 from PIL import Image
 
+# Função que recebe opções e monta um menu
 
 
-def menu(*arguments):
+def menu(array):
     i = 1
-    print("----- Menu de Opções -----")
-    for arg in arguments:
-        print(f"[{i}] {arg}\n")
+    for arg in array:
+        print(f"[{i}] {arg}")
         i += 1
 
 
 mixer.init()
+
+#Regras
+print("-" * 180)
+print("Antes de começaros, vamos deixar umas coisas claras aqui!:\n"
+      "1º - Você pode, a qualquer momento escolher/apontar quem é o assassino\n"
+      "2° - Se você apontar o assasino erroneamente, você ja era\n"
+      "3° - Você tera direito a duas pistas, no decorrer do jogo (a cada morte)\n"
+      "4° - Você terá direito a imagens para auxiliar durante o jogo")
+
+time.sleep(15)
 # Introdução
 print("-" * 180)
 print("Olá, esse é o nosso jogo de detetive feito para a disciplina Resolução de Problemas com Lógica Matematica do curso de Engenharia de Software")
@@ -21,24 +31,20 @@ print("-" * 180)
 time.sleep(5)
 # Primeiro parágrafo
 print("")
-print(
-    "Você foi contratado para dirigir um novo filme de terror, porém, há uma grande dúvida: quem será a estrela do seu filme de terror? ")
-print(
-    "Giulia, Fernando, Lucas e eu (André), como somos muitos generosos,lhe indicamos cinco possíveis estrelas ( Chucky, Jigsaw, Annabelle, "
-    "Samara Morgan, A Pennywise e Zé do caixão)\ne convidamos você junto a nossos indicados para uma PoolParty.\nQuem sabe assim você os conhece "
-    "melhor, e poderá tomar sua decisão.")
+print("Você foi contratado para dirigir um novo filme de terror, porém há uma grande dúvida: quem será a estrela do seu filme? ")
+print("Eu (André), Giulia, Fernando e Lucas, como somos muitos generosos, lhe indicamos cinco possíveis estrelas: Chucky, Jigsaw, Annabelle, "
+    "Samara Morgan, Pennywise, Zé do caixão\ne convidamos você junto a nossos indicados para uma PoolParty.\nQuem sabe assim você os conhece "
+    "melhor e poderá tomar sua decisão.")
 
 print("-" * 180)
 time.sleep(15)
 
 # Segundo parágrafo
 print("")
-print(
-    "Em um dado momento você, Chuky, Jigsaw e Zé do caixão, estão na cozinha batendo um papo. Chuky está contando sobre sua filha Glenda, e o"
-    " fato dela ser gênero fluido")
-print(
-    "Jigsaw está tendo dificuldade em alcançar o armário da cozinha para pegar um copo, parece que sua bicicletinha não é alta o suficiente.\n"
-    "Zé do caixão, por alguma razão sai da cozinha (que coisa não é mesmo… quem será que vai morrer?)...")
+print("Em um dado momento, você, Chucky, Jigsaw e Zé do caixão estão na cozinha batendo um papo. Chucky está contando sobre sua filha Glenda, e o"
+      "fato dela ser gênero fluido.")
+print("Jigsaw está tendo dificuldade em alcançar o armário da cozinha para pegar um copo, parece que sua bicicletinha não é alta o suficiente.\n"
+    "Zé do caixão, por alguma razão, sai da cozinha (que coisa não é mesmo… quem será que vai morrer?)...")
 print("-" * 180)
 time.sleep(15)
 # Mostra o som do grito
@@ -272,10 +278,46 @@ else:
             print("-" * 180)
             sys.exit()
         else:
-            print("SOM VITÓRIA")
-            print("VOCÊ GANHOU")
+            print("-" * 180)
+            print("\033[1;32mVOCÊ GANHOU\033[0m".center(180))
+            print("-" * 180)
+            mixer.music.load("./sound/tema-da-vitoria-curto.mp3")
+            mixer.music.play()
+            time.sleep(3)
     else:
-        print("Continua história")
+        print("-" * 180)
+        print("")
+        print("Você e Annabele acabam por decidir que irão avisar os demais. Você decide que irá por trás,\nseguindo o"
+              "corredor por dentro da garagem, enquanto a boneca espiritada decide ir pela frente.")
+        print("Ao chegar na cozinha, estão todos lá… bom, quase todos não é mesmo hahahahah\n"
+              "Só para lhe auxiliar, na cozinha estão você, Anabelle, Jigsaw e a PennyWise\n"
+              "(Caramba! Parece que a corda no seu pescoço está começando a apertar)\n"
+              "Você conta aos demais sobre a modelo da loreal paris, morta na garagem…")
+        print("-" * 180)
+        time.sleep(15)
+        print("- Parece realmente que alguém está tentando se livrar da concorrência - Afirma Pennywis\n"
+              "Chegou nessa conclusão sozinho, mr obvio? - vocifera Annabele\n"
+              "O mais importante é encontrar quem fez isso, e jogar um jogo com ele - (A você sabe quem foi)\n"
+              "Onde está aquela coisa feia e pequena? - Pergunta Pennywise\n"
+              "Chucky não é feio, é uma gracinhaaaaa - Annabele diz isso segurando as duas mãos demonstrando uma afeição esquisita por chucky\n"
+              "Ta brincando? O cara parece que cair da arvore da feiura e bateu em todos os galhos na queda ahaha -caçoa Pennywise\n"
+              "Depois de presenciar um discussão entre Pennywise e Annabele, o grupo decide ir atrás do chucky")
+        print("-" * 180)
+        time.sleep(15)
+        #som de passos
+        mixer.music.load("./sound/_SOUNDS ED_.__48k.mp3")
+        mixer.music.play()
+        time.sleep(4)
+        mixer.music.stop()
+        print("\033[31mVocês encontram chucky deitado no mato em frente a varanda\033[0m(bom, é bem proximo a varanda)\n"
+              "- Ele parece normal, ta morto mesmo ? Pergunta Jigsaw\n"
+              "-Está sim… - dizem os demais\n"
+              "Você percebe algo interessante, embora não haja evidências de alguma arma utilizada,"
+              " há uma mancha vermelha próximo aos lábios de chucky… curioso")
+        # imagem local do assassinato
+        img = Image.open('./imagens/quintal.jpg')  # cria o objeto
+        img.show()  # apresenta a imagem na tela
+
         # Adicionando novas preposições
         preposicoesT.append("Se Annabelle encontrou Jigsaw na varanda então ela passou pelo quintal")
         preposicoesT.append("Se a faca de PennyWise era de churrasco e na churrasqueira então ele estava fazendo churrasco")
