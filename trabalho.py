@@ -18,7 +18,7 @@ mixer.init()
 print("-" * 180)
 print("Olá, esse é o nosso jogo de detetive feito para a disciplina Resolução de Problemas com Lógica Matematica do curso de Engenharia de Software")
 print("-" * 180)
-
+time.sleep(5)
 # Primeiro parágrafo
 print("")
 print(
@@ -29,7 +29,7 @@ print(
     "melhor, e poderá tomar sua decisão.")
 
 print("-" * 180)
-time.sleep(10)
+time.sleep(15)
 
 # Segundo parágrafo
 print("")
