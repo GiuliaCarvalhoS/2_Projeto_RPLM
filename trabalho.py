@@ -470,6 +470,7 @@ else:
 
 '''
 Deduções:
+
 1: 'Se você, Jigsaw e Chucky não estavam na cozinha, então vocês são suspeitos',
 2: 'Samara estava fumando na varanda e a varanda é perto da sala',
 3: 'Se a faca de PennyWise era de churrasco e ele estava na churrasqueira',
@@ -483,14 +484,15 @@ Deduções:
 11: "Se a faca de PennyWise era de churrasco e ele estava na churrasqueira então ele estava fazendo churrasco"
 12: "Chucky foi assassinado no quintal frontal"
 
+USANDO AS REGRAS DE INFERÊNCIA:
 
-A: Pista 1 e 7: Você, Jigsaw e Chucky estavam na cozinha 
-B: Pista 2: Varanda é perto da sala
-C: Pista 3 e 11: PennyWise estava fazendo churrasco
-D: Pista 5 e 4: Annabelle está mexendo no anel sobre a luva
-E: Pista D e 8: Annabelle é a assassina
-F: Pista 10: Annabelle passou pelo quintal frontal
-G: Pista F e 12: Annabelle passou pelo quintal frontal e Chucky foi assassinado no quintal frontal
+A: Pista 1 e 7 (MODUS TOLLENS): Você, Jigsaw e Chucky estavam na cozinha 
+B: Pista 2 (SIMPLIFICAÇÃO): Varanda é perto da sala
+C: Pista 3 e 11 (MODUS PONNES): PennyWise estava fazendo churrasco
+D: Pista 5 e 4 (MODUS PONNES): Annabelle está mexendo no anel sobre a luva
+E: Pista 10 (SIMPLIFICAÇÃO): Annabelle passou pelo quintal frontal
+F: Pista F e 12 (CONJUNÇÃO): Annabelle passou pelo quintal frontal e Chucky foi assassinado no quintal frontal
+G: Pista D e 8 (MODUS PONNES): Annabelle é a assassina
 
 '''
 
