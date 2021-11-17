@@ -1,3 +1,5 @@
+ #DETETIVE, ALUNOS :ANDRÉ DELFINO,FERNANDO DIAS, GIULIA CARRVALHO SILVA,LUCAS E. BOTEGGA
+
 import sys
 import time
 from pygame import mixer
@@ -23,19 +25,22 @@ print("Antes de começaros, vamos deixar umas coisas claras aqui!:\n"
       "3° - Você tera direito a duas pistas, no decorrer do jogo (a cada morte)\n"
       "4° - Você terá direito a imagens para auxiliar durante o jogo")
 
+
 time.sleep(15)
 # Introdução
 print("-" * 180)
 print("Olá, esse é o nosso jogo de detetive feito para a disciplina Resolução de Problemas com Lógica Matematica do curso de Engenharia de Software")
 print("-" * 180)
 time.sleep(5)
+
 # Primeiro parágrafo
 print("")
 print("Você foi contratado para dirigir um novo filme de terror, porém há uma grande dúvida: quem será a estrela do seu filme? ")
 print("Eu (André), Giulia, Fernando e Lucas, como somos muitos generosos, lhe indicamos cinco possíveis estrelas: Chucky, Jigsaw, Annabelle, "
     "Samara Morgan, Pennywise, Zé do caixão\ne convidamos você junto a nossos indicados para uma PoolParty.\nQuem sabe assim você os conhece "
     "melhor e poderá tomar sua decisão.")
-
+img = Image.open('./imagens/ANNABELLE(2).png')  # cria o objeto
+img.show()
 print("-" * 180)
 time.sleep(15)
 
@@ -71,12 +76,12 @@ print("-" * 180)
 print("Escolha 2 pistas (preposições):")
 
 preposicoes = ["Pista1", "Pista2", "Pista3", "Pista4"]
-preposicoesT = ['Se você, Jigsaw e Chucky estavam na cozinha, então o assassino não estava na cozinha',
+preposicoesT = ['Se você, Jigsaw e Chucky não estavam na cozinha, então vocês são suspeitos',
                 'Samara estava fumando na varanda e a varanda é perto da sala',
                 'Se a faca de PennyWise era de churrasco, então ele estava cortando as pernas das crianças para o churras',
                 'Se Anabelle está mexendo no anel sobre a luva, então zé morreu esfaqueado'
                 ]
-pistasescolhidas = ["Zé do caixão morreu esfaqueado", "Para ir a varanda é necessário passar pelo quintal frontal"]
+pistasescolhidas = ["Zé do caixão morreu esfaqueado", "Para ir a varanda é necessário passar pelo quintal frontal", "Vocês não são suspeitos", "Chucky foi assassinado no quintal frontal"]
 menu(preposicoes)
 
 print("-" * 180)
@@ -320,7 +325,7 @@ else:
 
         # Adicionando novas preposições
         preposicoesT.append("Se Annabelle encontrou Jigsaw na varanda então ela passou pelo quintal")
-        preposicoesT.append("Se a faca de PennyWise era de churrasco e na churrasqueira então ele estava fazendo churrasco")
+        preposicoesT.append("Se a faca de PennyWise era de churrasco e ele estava na churrasqueira então ele estava fazendo churrasco")
 
         preposicoes = ["Pista1", "Pista2", "Pista3", "Pista4"]
         print("-" * 180)
@@ -399,49 +404,92 @@ else:
             print("-" * 180)
             print("Você está andando pela casa, pensando no que poderia ter acontecido...")
             print("As informoções que você sabe até agora:")
-            print(f'1: {pistasescolhidas[0]}')
-            time.sleep(2.5)
-            print(f'2: {pistasescolhidas[1]}')
-            time.sleep(2.5)
-            print(f'3: {pistasescolhidas[2]}')
-            time.sleep(2.5)
-            print(f'4: {pistasescolhidas[3]}')
-            time.sleep(2.5)
-            print(f'5: {pistasescolhidas[4]}')
-            time.sleep(2.5)
-            print(f'6: {pistasescolhidas[5]}')
-            time.sleep(2.5)
-            print(f'7: {pistasescolhidas[6]}')
-            time.sleep(2.5)
-            print(f'8: {pistasescolhidas[7]}')
-            time.sleep(7)
-            print("-" * 180)
-            print('Você ouve um barulho vindo da cozinha.. Ao adentrar a cozinha, o barulho fica mais alto. Parece o som de alguem sendo estrangulado.\n'
-                  'Você decide ir a fundo nisso, entender  o que esta acontecendo…')
-            # Mostra o som do coração
-            mixer.music.load("./sound/Som de coração batendo_48k.mp3")
-            mixer.music.play()
-            time.sleep(3)
-            mixer.music.stop()
-            print("Chegando perto da churrasqueira, o som aumenta. ")
-            # imagem local do assassinato
-            img = Image.open('./imagens/churrasqueira.jpg')  # cria o objeto
-            img.show()  # apresenta a imagem na tela
-            time.sleep(5)
-            print("Então um grito\n"
-                  "E lá está, Anabelle, com a cabeça de Jigsaw em suas mãos.\n"
-                  "Ela arrancou a cabeça dele e.. nossa… parece que está comendo as vísceras\n"
-                  "ELA VEM ATRÁS DE VOCÊ")
-            # Mostra o som derrota
-            mixer.music.load("./sound/mario fail sound effect_48k.mp3")
-            mixer.music.play()
-            time.sleep(5)
-            mixer.music.stop()
-            #Imagem você morreu
-            img = Image.open('./imagens/VOCE_MORREU.jpg')  # cria o objeto
-            img.show()  # apresenta a imagem na tela
-            print("-" * 180)
-            print("\033[31mVOCÊ MORREU\033[0m".center(180))
-            print("-" * 180)
-            sys.exit()
 
+            i = 0
+            for item in pistasescolhidas:
+                print(f"{i + 1}: {pistasescolhidas[i]}")
+                time.sleep(2.5)
+                i += 1
+            print(preposicoesT[0])
+            time.sleep(2.5)
+            print(preposicoesT[1])
+            escolhassassino = ''
+
+            while escolhassassino != "S" or escolhassassino != "N" or escolhassassino == '':
+                print("-" * 180)
+                escolhassassino = input("Deseja dizer quem é o assassino? [S/N]").upper().strip()
+                if escolhassassino == "S" or escolhassassino == "N":
+                    break
+
+            if escolhassassino == "S":
+                print("-" * 180)
+                nomeassassino = input("Digite o nome do assassino: ").upper().strip()
+                if nomeassassino != "ANNABELLE":
+                    # Mostra o som do grito
+                    mixer.music.load("./sound/y2meta.com - Grito de terror (320 kbps).mp3")
+                    mixer.music.play()
+                    time.sleep(2.5)
+                    mixer.music.stop()
+                    # imagem jogador morreu
+                    img = Image.open('./imagens/VOCE_MORREU.jpg')  # cria o objeto
+                    img.show()  # apresenta a imagem na tela
+                    print("-" * 180)
+                    print("\033[31mVOCÊ MORREU\033[0m".center(180))
+                    print("-" * 180)
+                    sys.exit()
+            else:
+                print("-" * 180)
+                print('Você ouve um barulho vindo da cozinha.. Ao adentrar a cozinha, o barulho fica mais alto. Parece o som de alguem sendo estrangulado.\n'
+                        'Você decide ir a fundo nisso, entender  o que esta acontecendo…')
+                # Mostra o som do coração
+                mixer.music.load("./sound/Som de coração batendo_48k.mp3")
+                mixer.music.play()
+                time.sleep(3)
+                mixer.music.stop()
+                print("Chegando perto da churrasqueira, o som aumenta. ")
+                print("Então um grito\n"
+                      "E lá está, Anabelle, com a cabeça de Jigsaw em suas mãos.\n"
+                      "Ela arrancou a cabeça dele e.. nossa… parece que está comendo as vísceras\n"
+                      "ELA VEM ATRÁS DE VOCÊ")
+                # imagem local do assassinato
+                img = Image.open('./imagens/churrasqueira.jpg')  # cria o objeto
+                img.show()  # apresenta a imagem na tela
+                time.sleep(5)
+                # Mostra o som derrota
+                mixer.music.load("./sound/mario fail sound effect_48k.mp3")
+                mixer.music.play()
+                time.sleep(5)
+                mixer.music.stop()
+                #Imagem você morreu
+                img = Image.open('./imagens/VOCE_MORREU.jpg')  # cria o objeto
+                img.show()  # apresenta a imagem na tela
+                print("-" * 180)
+                print("\033[31mVOCÊ MORREU\033[0m".center(180))
+                print("-" * 180)
+                sys.exit()
+
+'''
+Deduções:
+1: 'Se você, Jigsaw e Chucky não estavam na cozinha, então vocês são suspeitos',
+2: 'Samara estava fumando na varanda e a varanda é perto da sala',
+3: 'Se a faca de PennyWise era de churrasco e ele estava na churrasqueira',
+4: 'Se Anabelle está mexendo no anel sobre a luva, então zé morreu esfaqueado'
+5: "Zé do caixão morreu esfaqueado" 
+6: "Para ir a varanda é necessário passar pelo quintal frontal" 
+7: "Vocês não são suspeitos"
+8: "Se Annabelle está mexendo no anel sobre a luva, então ela é a assassina "
+9: "Se voz do grito era feminina, então Samara era quem estava gritando de dor ou a Annabelle de susto"
+10: "Se Annabelle encontrou Jigsaw na varanda e ela passou pelo quintal frontal"
+11: "Se a faca de PennyWise era de churrasco e ele estava na churrasqueira então ele estava fazendo churrasco"
+12: "Chucky foi assassinado no quintal frontal"
+
+
+A: Pista 1 e 7: Você, Jigsaw e Chucky estavam na cozinha 
+B: Pista 2: Varanda é perto da sala
+C: Pista 3 e 11: PennyWise estava fazendo churrasco
+D: Pista 5 e 4: Annabelle está mexendo no anel sobre a luva
+E: Pista D e 8: Annabelle é a assassina
+F: Pista 10: Annabelle passou pelo quintal frontal
+G: Pista F e 12: Annabelle passou pelo quintal frontal e Chucky foi assassinado no quintal frontal
+
+'''
