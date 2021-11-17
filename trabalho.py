@@ -39,7 +39,7 @@ print("Você foi contratado para dirigir um novo filme de terror, porém há uma
 print("Eu (André), Giulia, Fernando e Lucas, como somos muitos generosos, lhe indicamos cinco possíveis estrelas: Chucky, Jigsaw, Annabelle, "
     "Samara Morgan, Pennywise, Zé do caixão\ne convidamos você junto a nossos indicados para uma PoolParty.\nQuem sabe assim você os conhece "
     "melhor e poderá tomar sua decisão.")
-img = Image.open('./imagens/ANNABELLE(2).png')  # cria o objeto
+img = Image.open('./imagens/ANNABELLE (2).png')  # cria o objeto
 img.show()
 print("-" * 180)
 time.sleep(15)
@@ -493,3 +493,4 @@ F: Pista 10: Annabelle passou pelo quintal frontal
 G: Pista F e 12: Annabelle passou pelo quintal frontal e Chucky foi assassinado no quintal frontal
 
 '''
+
