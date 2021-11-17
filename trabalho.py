@@ -410,9 +410,9 @@ else:
                 print(f"{i + 1}: {pistasescolhidas[i]}")
                 time.sleep(2.5)
                 i += 1
-            print(preposicoesT[0])
+            print(f'11: {preposicoesT[0]}')
             time.sleep(2.5)
-            print(preposicoesT[1])
+            print(f'12: {preposicoesT[1]}')
             escolhassassino = ''
 
             while escolhassassino != "S" or escolhassassino != "N" or escolhassassino == '':
